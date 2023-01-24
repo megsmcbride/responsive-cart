@@ -1,0 +1,9 @@
+.navBar {
+  display: flex;
+  align-items: center;
+  height: 20vh;
+}
+
+.logo {
+  height: 15vh;
+}
