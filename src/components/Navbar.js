@@ -1,7 +1,9 @@
 import logo from "../images/WorldShop.png";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import Badge from "@mui/material/Badge"
 
-function Navbar() {
+function Navbar(props) {
+  const cartQuantity = window.localStorage.getItem('cartQuantity')
   return (
     <div>
       <nav className="navBar">
@@ -11,7 +13,12 @@ function Navbar() {
         <div className="navList">
           <a href="/"> Products</a>
           <a href="/cart">
-            <ShoppingCartRoundedIcon className="cartIcon" fontSize="20rem"/>
+         
+  <Badge badgeContent={cartQuantity} color="secondary">
+  <ShoppingCartRoundedIcon className="cartIcon" fontSize="20rem"/>
+  </Badge>
+
+            
           </a>
         </div>
       </nav>
