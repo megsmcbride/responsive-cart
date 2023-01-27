@@ -8,7 +8,10 @@ import { useEffect, useState } from "react";
 
 
 function App() {
-  const [ cart, setCart ] = useState([]);
+
+  const localStorageCart = window.localStorage.getItem('cart');
+  const parsedLocalStorageCart = JSON.parse(localStorageCart);
+  const [ cart, setCart ] = useState(parsedLocalStorageCart);
   const [productList, setProductList] = useState([]);
 
   const options = {
