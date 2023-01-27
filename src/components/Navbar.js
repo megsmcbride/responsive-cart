@@ -11,7 +11,7 @@ function Navbar() {
         <div className="navList">
           <a href="/"> Products</a>
           <a href="/cart">
-            <ShoppingCartRoundedIcon fontSize="20rem"/>
+            <ShoppingCartRoundedIcon className="cartIcon" fontSize="20rem"/>
           </a>
         </div>
       </nav>
