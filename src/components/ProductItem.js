@@ -1,22 +1,17 @@
 import "../css/ProductItem.css";
 function ProductItem(props) {
 
+  const {name, img} = props
   return (
-    <div className="productContainer">
+    <div className="productContainer" onClick={() => (window.location.href = `/${props.productId}`)}>
       <div className="productItem">
         <div className="imageContainer">
-
-          <img src={props.img} alt="product-image" />
+          <img src={img} alt="product-image" />
         </div>
         <div className="productInfo">
-          <h2>  {props.name} </h2>
-          <p>
-            ${props.price} {props.currency}
-          </p>
-
+          <h2> {name} </h2>
         </div>
       </div>
-
     </div>
   );
 }
