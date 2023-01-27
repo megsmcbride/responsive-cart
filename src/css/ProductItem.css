@@ -1,14 +1,7 @@
 .productContainer {
-  margin: 3rem;
+  margin: 0.5rem;
   width: 400px;
-  border-radius: 2%;
-  background-color: rgba(197, 197, 197, 0.288);
-  box-shadow: 0.1 0.125rem 0.3rem 0.1 rgb(0 0 0 / 11%);
-}
-
-.productContainer:hover {
-  box-shadow: 0 0.2rem 0.25rem 0 rgba(0, 0, 0, 0.204);
-
+  border-radius: 1%;
 }
 
 .productContainer img {
@@ -17,7 +10,7 @@
   width:  350px;
   height: 300px;
   object-fit: fill;
-  margin: 20px;
+ 
 }
 
 .productItem h2{
@@ -31,4 +24,5 @@
 
 .productInfo {
   margin: 20px;
+  box-shadow: 0.25rem 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.049);
 }
