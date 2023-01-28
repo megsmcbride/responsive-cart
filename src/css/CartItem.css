@@ -1,0 +1,17 @@
+.cartItemContainer {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0px;
+  border: black;
+}
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.cartItem img {
+  width: 250px;
+  height: 200px;
+
+}
