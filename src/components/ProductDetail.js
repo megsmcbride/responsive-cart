@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import "../css/ProductDetail.css";
 import Navbar from "./Navbar";
 
 function ProductDetail(props) {
   const productId = window.location.pathname.slice(1);
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState([]);
   const { cart, setCart } = props;
 
   // Filter productList for specific product info
@@ -19,28 +20,45 @@ function ProductDetail(props) {
   }, [props.productList]);
 
 
-  //Add Item to cart updating local storage and state
+  //Does cart exist yes add productId
   const addItem = () => {
-    console.log(cart);
-    setCart((prev) => [...prev, info[0]]);
+    if (cart && cart.length !== 0) {
+      setCart((prev) => [...prev, info[0].productId]);
+    } else {
+      console.log("no cart", info);
+      setCart([info[0].productId]);
+    }
 
   };
 
+  //Reload DOM when cart state changes
   useEffect(() => {
     window.localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart])
 
-  console.log("Cart", cart)
+  }, [cart]);
+
+
   return (
     <div>
       <Navbar />
-      <div>
+
+      {info.length > 0 ? <div className="productDetailsContainer">
         <img src={info[0]?.thumbnail} alt="product" />
-        <h2>{info[0]?.name}</h2>
-        <p>{info[0]?.currency} {info[0]?.price} </p>
-        <p>id: {info[0]?.productId}</p>
-        <button onClick={() => addItem()}>add to cart</button>
-      </div>
+        <div className="productDetails">
+          <h2>
+            <a href={info[0]?.url}>
+              {info[0]?.name}
+            </a>
+          </h2>
+          <p>{info[0]?.category}</p>
+          <p>Sold by: {info[0]?.marketplace}</p>
+          <p>{info[0]?.currency} {info[0]?.price} </p>
+          <p>id: {info[0]?.productId}</p>
+          <button onClick={() => addItem()}>add to cart</button>
+
+        </div>
+      </div> : <>loading</>}
+
     </div>
   );
 }
